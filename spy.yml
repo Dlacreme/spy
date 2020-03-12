@@ -1,0 +1,8 @@
+scope: "*"
+once:
+  - echo "SPY is starting"
+  - crystal run
+always:
+  - crystal run
+async:
+  - crystal spec
