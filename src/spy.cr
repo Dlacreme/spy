@@ -5,4 +5,6 @@ module Spy
 
   conf = Config.load_from_yml_file("./spy.yml")
   conf.pretty_print
+
+  conf.once.each { cmd | Runner.run(cmd) }
 end
