@@ -3,7 +3,7 @@ require "yaml"
 module Spy
   class Config
     YAML.mapping(
-      scope: {type: String, default: "*"},
+      scope: {type: String, default: "."},
       once: Array(String)?,
       always: Array(String)?,
       async: Array(String)?,
