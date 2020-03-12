@@ -1,12 +1,11 @@
-module Spy
-  module Watcher
-    c_bind = CBinding.new(scope)
+require "./watcher_inotify.c.cr"
 
-    extend self
+module Spy::Watcher
+  extend self
 
-    def watch(scope : String, &block)
-      puts "Start watch for : #{scope}"
-      c_bind.register
-    end
+  def watch(scope : String, &block)
+    inotifiy = INotify.new
+    inotifiy.register(scope)
+    yield
   end
 end
