@@ -27,7 +27,7 @@ module Spy::Watcher
     def register(target : String)
       @fd = C.inotify_init1(C::IN_NONBLOCK)
       raise Exception.new("INOTIFY not available") if @fd == -1
-      @watched = C.inotify_add_watch(@fd.not_nil!, target, 1)
+      @watched = C.inotify_add_watch(@fd.not_nil!, target, C::IN_MODIFY)
       @fds = get_fds
 
       puts "loop start"
