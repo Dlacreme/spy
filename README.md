@@ -29,7 +29,6 @@ Then simply run `spy`
 $ spy
 ```
 
-
 ## Contributing
 
 1. Fork it (<https://github.com/dlacreme/spy/fork>)
