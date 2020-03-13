@@ -5,7 +5,6 @@ module Spy::Watcher
 
   def watch(scope : String, &block)
     inotifiy = INotify.new
-    inotifiy.register(scope)
-    yield
+    inotifiy.register(scope) { yield }
   end
 end
