@@ -9,11 +9,11 @@ module Spy::Watcher
     end
 
     STDIN_FILENO =          0 # STDIN FD
-    IN_NONBLOCK  =       2048 # https://sites.uclouvain.be/SystInfo/usr/include/sys/inotify.h.html
+    IN_NONBLOCK  =     0o4000 # https://sites.uclouvain.be/SystInfo/usr/include/sys/inotify.h.html
     IN_ACCESS    = 0x00000001 # "
     IN_MODIFY    = 0x00000002 # "
     IN_OPEN      = 0x00000020 # "
-    POLLIN       = 0x00000001 # https://code.woboq.org/qt5/include/bits/poll.h.html
+    POLLIN       =      0x001 # https://code.woboq.org/qt5/include/bits/poll.h.html
 
     fun inotify_init1(Int32) : Int64
     fun inotify_add_watch(Int64, UInt8*, UInt32) : UInt8*
@@ -26,7 +26,7 @@ module Spy::Watcher
     def register(target : String, &block)
       @fd = C.inotify_init1(C::IN_NONBLOCK)
       raise Exception.new("INOTIFY not available") if @fd == -1
-      @watched = C.inotify_add_watch(@fd.not_nil!, target, C::IN_MODIFY)
+      @watched = C.inotify_add_watch(@fd.not_nil!, target, C::IN_MODIFY | C::IN_OPEN | C::IN_ACCESS)
       @fds = get_fds
 
       puts "Start watching '#{target}'"

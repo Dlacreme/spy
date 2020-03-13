@@ -14,8 +14,6 @@ $ crystal build ./src/spy.cr --release
 
 Create a `spy.yml` file at the root of your project:
 
-
-
 ```yml
 # spy.yml
 scope: *
