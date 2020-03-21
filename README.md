@@ -16,13 +16,16 @@ Create a `spy.yml` file at the root of your project:
 
 ```yml
 # spy.yml
-scope: *
+scope: ./src/
 once:
+  # ONCE commands are executed only once at the very beggining
   - echo "SPY is starting"
 always:
+  # ALWAYS commands are executed everytime a file is updated
   - crystal run ./src/spy.cr
 async:
-  - crystal spec
+  # ASYNC commands are executed everytime a file is updated but is non blocking and simply display the output (useful for tests)
+  - crystal spec # !ASYNC IS NOT WORKING YET
 ```
 Then simply run `spy`
 ```sh

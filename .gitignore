@@ -3,4 +3,3 @@
 /bin/
 /.shards/
 *.dwarf
-/c_inotify/a.out

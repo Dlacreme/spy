@@ -1,4 +1,4 @@
-scope: .
+scope: ./src/
 once:
   - echo "SPY IS STARTING"
   # - crystal run
@@ -6,5 +6,5 @@ always:
   - echo "SPY ALWAYS PROC"
   # - crystal run
 async:
-  - echo "SPY ASYNC"
+  - echo "ASYNC IS NOT READY TO USE YET"
   # - crystal spec
