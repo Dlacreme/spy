@@ -4,10 +4,20 @@ Hot reload on any application
 
 ## Installation
 
-From source
+### Direct download
+```sh
+$ wget https://github.com/Dlacreme/spy/raw/master/dist/spy # Download the binary
+$ wget https://github.com/Dlacreme/spy/raw/master/spy.yml # Download a default config file (spy.yml). See `usage` for more information
+$ ./spy # Run
+```
+
+### From source
 ```sh
 $ git clone https://github.com/dlacreme/spy.git && cd spy
 $ crystal build ./src/spy.cr --release
+$ cp spy && spy.yml /path/to/your/project
+$ cd /path/to/your/project
+$ ./spy
 ```
 
 ## Usage
