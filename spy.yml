@@ -1,7 +1,6 @@
 scope: ./src/
 once:
   - echo "SPY IS STARTING"
-  # - crystal run
 always:
   - echo "SPY ALWAYS PROC"
   # - crystal run
