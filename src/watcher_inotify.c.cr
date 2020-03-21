@@ -19,20 +19,35 @@ module Spy::Watcher
   end
 
   class INotify
-    # @@fd : Int64 = -1
-    # unitialized @watched : Pointer(UInt8) = pointerof(@fd)
-    # @@fds : Array(C::Fds) = [] of C::Fds
+    @buf = Bytes.new(4096) # aligned as follow should improve perf: _attribute__ ((aligned(__alignof__(struct inotify_event))))
+    @fd_id = IO::FileDescriptor
+    @len : Int32 = 0
 
     def register(target : String, &block)
       fd = C.inotify_init1(C::IN_NONBLOCK)
       raise Exception.new("INOTIFY not available") if fd == -1
+      @fd_io = IO::FileDescriptor.new(fd)
+
       watched = C.inotify_add_watch(fd, target, C::IN_MODIFY)
       fds = get_fds(fd)
+
+      puts "Start watching '#{target}'"
       loop do
-        puts "Start watching '#{target}'"
         poll_num = C.poll(fds, fds.size, -1)
         raise Exception.new("Poll error") if poll_num == -1
-        yield if poll_num > 0
+
+        if poll_num > 0 && (fds[1].revents & C::POLLIN)
+          yield if consume_events
+        end
+      end
+    end
+
+    private def consume_events
+      # Loop while we have events to read
+      loop do
+        @len = @fd_io.not_nil!.read(@buf)
+        return false if @len == 0 # No more events - we exit
+        return true
       end
     end
 
