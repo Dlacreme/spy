@@ -6,9 +6,12 @@ Hot reload on any application
 
 ### Direct download
 ```sh
-$ wget https://github.com/Dlacreme/spy/raw/master/dist/spy && chmod +x spy # Download the binary
-$ wget https://github.com/Dlacreme/spy/raw/master/spy.yml # Download a default config file (spy.yml). See `usage` for more information
-$ ./spy # Run
+# Download the binary
+$ wget https://github.com/Dlacreme/spy/raw/master/dist/spy && chmod +x spy 
+# Download a default config file (spy.yml). See `usage` for more information
+$ wget https://github.com/Dlacreme/spy/raw/master/spy.yml 
+# Run
+$ ./spy
 ```
 
 ### From source
