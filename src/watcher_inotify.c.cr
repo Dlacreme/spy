@@ -28,7 +28,7 @@ module Spy::Watcher
       puts "FD = #{fd}"
       raise Exception.new("INOTIFY not available") if fd == -1
       watched = C.inotify_add_watch(fd, target, C::IN_MODIFY)
-      puts "WATCHED = #{fd}"
+      puts "WATCHED = #{watched}"
       fds = get_fds(fd)
       # fds.each { |x| puts("FD: #{x.fd} ; EVENTS: #{x.events} ; REVENTS: #{x.revents}") }
       loop do
