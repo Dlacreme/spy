@@ -17,8 +17,9 @@ module Spy
       p = fork do
         commands.not_nil!.each do |cmd|
           print(" > ", BLUE, cmd)
+          puts PURPLE
           system cmd
-          puts ""
+          puts "#{COLOROFF}\n"
         end
       end
       p.wait
