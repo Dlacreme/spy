@@ -6,7 +6,7 @@ Hot reload on any application
 
 ### Direct download
 ```sh
-$ wget https://github.com/Dlacreme/spy/raw/master/dist/spy # Download the binary
+$ wget https://github.com/Dlacreme/spy/raw/master/dist/spy && chmod +x spy # Download the binary
 $ wget https://github.com/Dlacreme/spy/raw/master/spy.yml # Download a default config file (spy.yml). See `usage` for more information
 $ ./spy # Run
 ```
@@ -33,9 +33,6 @@ once:
 always:
   # ALWAYS commands are executed everytime a file is updated
   - crystal run ./src/spy.cr
-async:
-  # ASYNC commands are executed everytime a file is updated but is non blocking and simply display the output (useful for tests)
-  - crystal spec # !ASYNC IS NOT WORKING YET
 ```
 Then simply run `spy`
 ```sh

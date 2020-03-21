@@ -4,6 +4,3 @@ once:
 always:
   - echo "SPY ALWAYS PROC"
   # - crystal run
-async:
-  - echo "ASYNC IS NOT READY TO USE YET"
-  # - crystal spec
