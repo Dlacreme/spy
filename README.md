@@ -2,7 +2,7 @@
 
 Hot reload on any application
 
-## Installation
+## Install
 
 ### Direct download
 ```sh
