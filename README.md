@@ -35,7 +35,7 @@ target: ./src/
 once:
   # commands executed before watching files
   - build.sh
-  - run_dev.sh
+  - start_server.sh
 always:
   # commands executed everytime a file is updated
   - build.sh
