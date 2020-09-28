@@ -8,8 +8,10 @@ Hot reload on any application
 ```sh
 # Download the binary
 $ wget https://github.com/Dlacreme/spy/raw/master/dist/spy && chmod +x spy 
+
 # Download a default config file (spy.yml). See `usage` for more information
 $ wget https://github.com/Dlacreme/spy/raw/master/spy.yml 
+
 # Run
 $ ./spy
 ```
@@ -31,7 +33,7 @@ Create a `spy.yml` file at the root of your project:
 # spy.yml
 target: ./src/
 once:
-  # ONCE commands are executed only once at the very beggining
+  # commands to run before watching for file
   - echo "SPY is starting"
 always:
   # ALWAYS commands are executed everytime a file is updated
