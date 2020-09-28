@@ -29,7 +29,7 @@ Create a `spy.yml` file at the root of your project:
 
 ```yml
 # spy.yml
-scope: ./src/
+target: ./src/
 once:
   # ONCE commands are executed only once at the very beggining
   - echo "SPY is starting"

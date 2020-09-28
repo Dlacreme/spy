@@ -11,8 +11,7 @@ module Spy
   Runner.run_many conf.once
 
   # Start watching for file events
-  Watcher.watch(conf.scope) do
-    # Runner.run_many_async conf.async
+  Watcher.watch(conf.target) do
     Runner.run_many conf.always
   end
 end

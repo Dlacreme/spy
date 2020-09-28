@@ -1,4 +1,4 @@
-scope: ./src/
+target: ./src/
 once:
   - echo "SPY IS STARTING"
 always:

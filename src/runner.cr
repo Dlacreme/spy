@@ -14,7 +14,7 @@ module Spy
 
     def run_many(commands : Array(String)?)
       return unless commands.nil? == false && commands.not_nil!.size > 0
-      p = fork do
+      p = Process.fork do
         commands.not_nil!.each do |cmd|
           print(" > ", BLUE, cmd)
           puts PURPLE
@@ -23,18 +23,6 @@ module Spy
         end
       end
       p.wait
-    end
-
-    def run_many_async(commands : Array(String)?)
-      return unless commands.nil? == false && commands.not_nil!.size > 0
-      p = fork do
-        commands.not_nil!.each do |cmd|
-          print(" >> ", PURPLE, cmd)
-          system cmd
-          puts ""
-        end
-      end
-      # SegFault when we don't wait
     end
 
     def print(prefix, color, content)
