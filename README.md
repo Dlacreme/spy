@@ -9,7 +9,7 @@ Hot reload on any application
 # Download the binary
 $ wget https://github.com/Dlacreme/spy/raw/master/dist/spy && chmod +x spy 
 
-# Download a default config file (spy.yml). See `usage` for more information
+# (optional) Download a default config file (spy.yml). See `usage` for more information
 $ wget https://github.com/Dlacreme/spy/raw/master/spy.yml 
 
 # Run
@@ -33,11 +33,12 @@ Create a `spy.yml` file at the root of your project:
 # spy.yml
 target: ./src/
 once:
-  # commands to run before watching for file
-  - echo "SPY is starting"
+  # commands executed before watching files
+  - build.sh
+  - run_dev.sh
 always:
-  # ALWAYS commands are executed everytime a file is updated
-  - crystal run ./src/spy.cr
+  # commands executed everytime a file is updated
+  - build.sh
 ```
 Then simply run `spy`
 ```sh
